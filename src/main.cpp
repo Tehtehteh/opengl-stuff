@@ -1,40 +1,17 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <cstdlib>
+#include <iostream>
+#include <app/Application.h>
 #include "utils/utils.h"
 
+
 int main() {
-    char *msg = malloc(10);
-    GLFWwindow* window;
-
-    /* Initialize the library */
-    if (!glfwInit())
-        return -1;
-
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", nullptr, nullptr);
-    if (window == nullptr)
-    {
-        glfwTerminate();
-        return -1;
-    }
-
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
-        /* Render here */
-//        glClear(GL_COLOR_BUFFER_BIT);
-
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
-
-        /* Poll for and process events */
-        glfwPollEvents();
-    }
-
-    glfwTerminate();
+    const int width = 640;
+    const int height = 480;
+    char *name = "My test program.";
+    Application app(height, width, name);
+    app.loop();
+    app.cleanup();
     return 0;
 }

@@ -12,6 +12,6 @@ int main() {
     std::string name = "My test application";
     Application app(height, width, name.c_str());
     app.loop();
-    app.cleanup();
+    Application::cleanup();
     return 0;
 }

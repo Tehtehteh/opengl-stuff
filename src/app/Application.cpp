@@ -1,6 +1,3 @@
-//
-// Created by selv on 18.04.19.
-//
 #include <iostream>
 #include "Application.h"
 
@@ -18,18 +15,21 @@ Application::Application(int height, int width, const char *name) {
         this->initialized = true;
     } else {
         std::cout << "ERROR: Could not initialize glfw window. Terminating";
-        this->cleanup();
+        Application::cleanup();
     }
 }
 
 void Application::loop() {
+    std::cout << "INFO: app loop start";
     while (!glfwWindowShouldClose(this->window))
     {
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+    std::cout << "INFO: app loop end";
 }
 
 void Application::cleanup() {
+    std::cout << "INFO: Cleaning up application.";
     glfwTerminate();
 }

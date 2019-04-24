@@ -1,11 +1,4 @@
-//
-// Created by selv on 18.04.19.
-//
-
-#ifndef OPENGL_START_APPLICATION_H
-#define OPENGL_START_APPLICATION_H
-
-
+#pragma once
 #include <GLFW/glfw3.h>
 
 class Application {
@@ -17,12 +10,9 @@ public:
     bool initialized = false;
 
     void loop();
-    void cleanup();
+    static void cleanup();
 
 protected:
     GLFWwindow *window;
 
 };
-
-
-#endif //OPENGL_START_APPLICATION_H

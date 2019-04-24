@@ -1,4 +1,5 @@
 #include <GLFW/glfw3.h>
+#include <GL/glew.h>
 #include <stdio.h>
 #include <cstdlib>
 #include <iostream>
@@ -11,6 +12,12 @@ int main() {
     const int height = 480;
     std::string name = "My test application";
     Application app(height, width, name.c_str());
+    GLenum err = glewInit();
+    if (GLEW_OK != err) {
+        fprintf(stderr, "Error initializing glew. Msg: %d", err);
+        return 1;
+    }
+    fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
     app.loop();
     Application::cleanup();
     return 0;

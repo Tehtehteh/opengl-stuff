@@ -22,3 +22,8 @@ add_subdirectory("${GLFW_DIR}")
 target_link_libraries(${PROJECT_NAME} "glfw" "${GLFW_LIBRARIES}")
 target_include_directories(${PROJECT_NAME} PRIVATE "${GLFW_DIR}/include")
 target_compile_definitions(${PROJECT_NAME} PRIVATE "GLFW_INCLUDE_NONE")
+
+# GLEW
+set(GLEW_DIR "${LIB_DIR}/glew")
+target_link_libraries(${PROJECT_NAME} "glew" "${GLEW_LIBRARIES}")
+target_include_directories(${PROJECT_NAME} PRIVATE "${GLEW_DIR}/include")

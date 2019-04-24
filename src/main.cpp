@@ -9,8 +9,8 @@
 int main() {
     const int width = 640;
     const int height = 480;
-    char *name = "My test program.";
-    Application app(height, width, name);
+    std::string name = "My test application";
+    Application app(height, width, name.c_str());
     app.loop();
     app.cleanup();
     return 0;

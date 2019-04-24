@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Application.h"
 
-Application::Application(int height, int width, char *name) {
+Application::Application(int height, int width, const char *name) {
     this->window_height = height;
     this->window_width = width;
     this->name = name;

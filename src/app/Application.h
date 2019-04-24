@@ -10,10 +10,10 @@
 
 class Application {
 public:
-    Application(int height, int width, char *name);
+    Application(int height, int width, const char *name);
     int window_height;
     int window_width;
-    char *name;
+    const char *name;
     bool initialized = false;
 
     void loop();

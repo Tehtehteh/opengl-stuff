@@ -1,7 +1,8 @@
 # Project definition
 cmake_minimum_required(VERSION 3.1)
 project(opengl_start)
-
+find_package(OpenGL REQUIRED)
+add_definitions(-DGLEW_STATIC)
 # Source files
 set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib")
@@ -25,5 +26,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE "GLFW_INCLUDE_NONE")
 
 # GLEW
 set(GLEW_DIR "${LIB_DIR}/glew")
+add_subdirectory("${GLEW_DIR}/build/cmake")
 target_link_libraries(${PROJECT_NAME} "glew" "${GLEW_LIBRARIES}")
-target_include_directories(${PROJECT_NAME} PRIVATE "${GLEW_DIR}/include")
+target_include_directories(${PROJECT_NAME} PRIVATE "${GLEW_DIR}/include/GL")
+target_compile_definitions(${PROJECT_NAME} PRIVATE "GLEW_INCLUDE_NONE")
